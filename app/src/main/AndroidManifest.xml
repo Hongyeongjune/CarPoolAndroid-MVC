@@ -15,9 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".DriverStartingActivity"
+            android:label="@string/title_activity_driver_starting"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".UserDrivingListActivity" />
+        <activity
             android:name=".StartingActivity"
             android:label="@string/title_activity_starting"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UserInformationActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SearchActivity" />
@@ -26,6 +31,7 @@
         <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

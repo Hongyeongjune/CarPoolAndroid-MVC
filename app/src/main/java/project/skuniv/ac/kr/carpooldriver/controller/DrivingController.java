@@ -8,6 +8,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static project.skuniv.ac.kr.carpooldriver.IntroActivity.loginCheck;
+
 public class DrivingController {
 
     Context context;
@@ -24,6 +26,12 @@ public class DrivingController {
             @Override
             public void onResponse(Call<DrivingSaveDto> call, Response<DrivingSaveDto> response) {
 
+                if(response.isSuccessful()) {
+                    loginCheck = true;
+                }
+                else {
+                    loginCheck = false;
+                }
             }
 
             @Override
