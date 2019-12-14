@@ -61,7 +61,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:orientation="vertical"
         android:weightSum="2"
         android:background="@drawable/button_shape">
@@ -88,7 +88,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="vertical"
         android:background="@drawable/button_shape"
         android:weightSum="3">

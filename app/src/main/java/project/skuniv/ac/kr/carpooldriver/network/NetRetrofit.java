@@ -27,7 +27,7 @@ public class NetRetrofit {
      * 주의) addConverterFactory를 추가하지 않을 경우 어플리케이션이 종료됨
      */
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.200.196:8080/")
+            .baseUrl("http://192.168.0.13:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

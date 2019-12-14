@@ -198,6 +198,12 @@ public class SearchActivity extends AppCompatActivity implements OnMapReadyCallb
 
         distance = departureLocation.distanceTo(destinationLocation);
 
+        distance = distance / 1000;
+
+        distance = (Math.round((distance * 100))) / 100.0F;
+
+
+
         // Set listeners for click events.
         googleMap.setOnPolylineClickListener(this);
         googleMap.setOnPolygonClickListener(this);

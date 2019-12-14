@@ -5,33 +5,33 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_driver_register"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="드라이버 등록" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_driver_information"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="내 정보" />
+        <item
+            android:id="@+id/nav_driver_license_information"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="드라이버 정보" />
+        <item
+            android:id="@+id/nav_driver_driving_list"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="여정내역" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_driver_notice"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:title="공지사항" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_driver_logout"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:title="로그아웃" />
         </menu>
     </item>
 

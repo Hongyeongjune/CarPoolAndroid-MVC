@@ -9,12 +9,20 @@ public class UserListItem {
     private String departure;
     private String destination;
     private String date;
-    private LocalDate regDate;
+    private String regDate;
 
     public UserListItem() {
     }
 
-    public UserListItem(Long dno, String distance, String departure, String destination, String date, LocalDate regDate) {
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
+    }
+
+    public UserListItem(Long dno, String distance, String departure, String destination, String date, String regDate) {
         this.dno = dno;
         this.distance = distance;
         this.departure = departure;
@@ -62,14 +70,5 @@ public class UserListItem {
     public void setDate(String date) {
         this.date = date;
     }
-
-    public LocalDate getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(LocalDate regDate) {
-        this.regDate = regDate;
-    }
-
 
 }

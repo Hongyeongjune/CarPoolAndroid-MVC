@@ -3,7 +3,6 @@ package project.skuniv.ac.kr.carpooldriver.controller;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.util.Log;
 
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.CheckUserIdDto;

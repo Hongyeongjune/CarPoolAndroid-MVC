@@ -338,8 +338,13 @@ public class StartingActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_driving_list) {
             Intent intent = new Intent(getApplicationContext(), UserDrivingListActivity.class);
+            intent.putExtra("startList", 1);
             startActivity(intent);
 
+        } else if (id == R.id.nav_driving_list_finish) {
+            Intent intent = new Intent(getApplicationContext(), UserDrivingListActivity.class);
+            intent.putExtra("finishList",2);
+            startActivity(intent);
         } else if (id == R.id.nav_notice) {
 
         } else if (id == R.id.nav_logout) {
