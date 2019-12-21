@@ -18,6 +18,7 @@ import java.security.NoSuchAlgorithmException;
 
 import project.skuniv.ac.kr.carpooldriver.controller.UserController;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.SignInDto;
+import project.skuniv.ac.kr.carpooldriver.fcm.FcmTokenService;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -52,6 +53,8 @@ public class IntroActivity extends AppCompatActivity {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+
+        FcmTokenService.getFcmToken();
 
         auto = getSharedPreferences("autoSignIn", Activity.MODE_PRIVATE);
         userInformation = getSharedPreferences("loginInformation", Activity.MODE_PRIVATE);

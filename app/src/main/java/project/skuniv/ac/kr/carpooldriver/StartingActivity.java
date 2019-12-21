@@ -79,6 +79,7 @@ public class StartingActivity extends AppCompatActivity
         OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback,
         GoogleMap.OnPolylineClickListener, GoogleMap.OnPolygonClickListener{
 
+    public static int removeCheck = 0;
     private static final int AUTOCOMPLETE_REQUEST_CODE = 1;
     private UserController userController;
     private TextView name, id;
@@ -214,7 +215,7 @@ public class StartingActivity extends AppCompatActivity
                     intent.putExtra("departureName", departureName);
                     intent.putExtra("destinationName", destinationName);
                     startActivity(intent);
-                    finish();
+                    Toast.makeText(StartingActivity.this, "잠시만 기다려주세요 경로 탐색 중 입니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -337,13 +338,18 @@ public class StartingActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), UserInformationActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_driving_list) {
+            removeCheck = 1;
             Intent intent = new Intent(getApplicationContext(), UserDrivingListActivity.class);
             intent.putExtra("startList", 1);
             startActivity(intent);
 
+        } else if (id == R.id.nav_matching_list) {
+            Intent intent = new Intent(getApplicationContext(), RequestDrivingActivity.class);
+            intent.putExtra("matchingCheck", 2);
+            startActivity(intent);
         } else if (id == R.id.nav_driving_list_finish) {
-            Intent intent = new Intent(getApplicationContext(), UserDrivingListActivity.class);
-            intent.putExtra("finishList",2);
+            Intent intent = new Intent(getApplicationContext(), FinishDrivingActivity.class);
+            intent.putExtra("finishCheckByGroup", 2);
             startActivity(intent);
         } else if (id == R.id.nav_notice) {
 

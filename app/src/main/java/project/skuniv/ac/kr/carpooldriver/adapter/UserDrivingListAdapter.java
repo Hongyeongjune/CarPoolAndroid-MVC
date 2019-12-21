@@ -19,12 +19,14 @@ import project.skuniv.ac.kr.carpooldriver.R;
 import project.skuniv.ac.kr.carpooldriver.controller.DrivingController;
 import project.skuniv.ac.kr.carpooldriver.domain.listItem.UserListItem;
 
+import static project.skuniv.ac.kr.carpooldriver.StartingActivity.removeCheck;
+
 public class UserDrivingListAdapter extends BaseAdapter {
 
     ArrayList<UserListItem> userListItems = new ArrayList<UserListItem>();
     DrivingController drivingController = new DrivingController();
-    private SharedPreferences drivingList, userInformation;
-    private SharedPreferences.Editor drivingEditor, loginEditor;
+    private SharedPreferences drivingList, userInformation, drivingListFinish;
+    private SharedPreferences.Editor drivingEditor, loginEditor, drivingFinishEditor;
 
     public UserDrivingListAdapter() {
 
@@ -80,12 +82,25 @@ public class UserDrivingListAdapter extends BaseAdapter {
                 drivingList = context.getSharedPreferences("drivingListByUserId",Activity.MODE_PRIVATE);
                 drivingEditor = drivingList.edit();
 
+                drivingListFinish = context.getSharedPreferences("drivingListByUserIdAndFinish", Activity.MODE_PRIVATE);
+                drivingFinishEditor = drivingListFinish.edit();
+
                 userInformation = context.getSharedPreferences("loginInformation", Activity.MODE_PRIVATE);
                 loginEditor = userInformation.edit();
 
+                if(removeCheck == 1) {
 
-                drivingController.removeDrivingList(userInformation.getString("loginId",null),
-                        drivingList.getLong("drivingListDno" + pos, 0L));
+                    drivingController.removeDrivingList(userInformation.getString("loginId", null),
+                            drivingList.getLong("drivingListDno" + pos, 0L));
+
+                    removeCheck = 0;
+                } else if(removeCheck == 2){
+
+                    drivingController.removeDrivingList(userInformation.getString("loginId", null),
+                            drivingListFinish.getLong("drivingFinishListDno" + pos, 0L));
+
+                    removeCheck = 0;
+                }
 
                 if( pos >= 0) {
 
@@ -114,6 +129,12 @@ public class UserDrivingListAdapter extends BaseAdapter {
         userListItem.setRegDate(regDate);
 
         userListItems.add(userListItem);
+    }
+
+    public void deleteItem() {
+
+        userListItems.clear();
+
     }
 
 }

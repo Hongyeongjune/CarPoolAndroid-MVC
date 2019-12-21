@@ -74,13 +74,54 @@ public class UserDrivingListActivity extends AppCompatActivity {
                                 drivingList.getString("drivingListRegDate" + i, null));
                     }
 
+                    if(size == 0) {
+                        userDrivingListAdapter.deleteItem();
+
+                        Toast.makeText(UserDrivingListActivity.this, "요청 내역이 없습니다.", Toast.LENGTH_SHORT).show();
+                    }
+
+
+
                     userDrivingListAdapter.notifyDataSetChanged();
 
                 }
             }, 3000);
         }
         else if(getIntent().getIntExtra("finishList", 0) == 2) {
-            
+            drivingController.getDrivingByUserIdAndFinish(loginId);
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    drivingList = getSharedPreferences("drivingListByUserIdAndFinish", Activity.MODE_PRIVATE);
+                    drivingEditor = drivingList.edit();
+
+                    Log.d("DrivingList : ", drivingList.getString("drivingFinishListDeparture" + 0, null));
+
+                    int size = drivingList.getInt("drivingFinishListSize", 0);
+
+                    for (int i = 0; i < size; i++) {
+                        userDrivingListAdapter.addItem(drivingList.getLong("drivingFinishListDno" + i, 0L),
+                                drivingList.getString("drivingFinishListDistance" + i, null),
+                                drivingList.getString("drivingFinishListDeparture" + i, null),
+                                drivingList.getString("drivingFinishListDestination" + i, null),
+                                drivingList.getString("drivingFinishListDate" + i, null),
+                                drivingList.getString("drivingFinishListRegDate" + i, null));
+                    }
+
+                    if(size == 0) {
+                        userDrivingListAdapter.deleteItem();
+
+                        Toast.makeText(UserDrivingListActivity.this, "요청 내역이 없습니다.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    userDrivingListAdapter.notifyDataSetChanged();
+
+                }
+            }, 3000);
+
         }
 
 

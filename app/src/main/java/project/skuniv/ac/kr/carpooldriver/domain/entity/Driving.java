@@ -26,4 +26,7 @@ public class Driving implements Serializable {
 
     @SerializedName("user")
     private User user;
+
+    @SerializedName("driver")
+    private User driver;
 }

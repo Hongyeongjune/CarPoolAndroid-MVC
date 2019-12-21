@@ -19,7 +19,11 @@
         <item
             android:id="@+id/nav_driver_driving_list"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="여정내역" />
+            android:title="매칭 내역" />
+        <item
+            android:id="@+id/nav_driver_driving_list_finish"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="여정 내역" />
         <item
             android:id="@+id/nav_driver_notice"
             android:icon="@drawable/ic_menu_slideshow"
