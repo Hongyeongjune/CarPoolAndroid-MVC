@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -43,11 +44,18 @@ public class LoginActivity extends AppCompatActivity {
         editor = auto.edit();
         loginEditor = userInformation.edit();
 
+        Log.d("loginCheckCheck" , "adasddasdsd");
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Log.d("LoginCheckCheckCheck", "rgffgr");
+
                 signInDto = new SignInDto(id.getText().toString(), password.getText().toString());
+
+                Log.d("SignInDto : ", id.getText().toString());
+
                 userController.singIn(signInDto);
 
                 Handler handler = new Handler();
@@ -80,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
-                },1000);
+                },3000);
             }
         });
 

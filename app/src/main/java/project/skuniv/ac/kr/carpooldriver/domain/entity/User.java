@@ -22,4 +22,7 @@ public class User implements Serializable {
     @SerializedName("phone")
     private String phone;
 
+    @SerializedName("deviceToken")
+    private String deviceToken;
+
 }

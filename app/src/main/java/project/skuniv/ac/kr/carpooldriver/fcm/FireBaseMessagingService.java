@@ -1,5 +1,6 @@
 package project.skuniv.ac.kr.carpooldriver.fcm;
 
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -11,7 +12,10 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.List;
+
 import androidx.core.app.NotificationCompat;
+import project.skuniv.ac.kr.carpooldriver.DriverStartingActivity;
 import project.skuniv.ac.kr.carpooldriver.R;
 import project.skuniv.ac.kr.carpooldriver.StartingActivity;
 
@@ -41,7 +45,7 @@ public class FireBaseMessagingService extends FirebaseMessagingService {
 
     private void notifyBackground(RemoteMessage remoteMessage) {
 
-        Intent intent = new Intent(this, StartingActivity.class);
+        Intent intent = new Intent(this, DriverStartingActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
         Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);

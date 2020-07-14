@@ -44,8 +44,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import project.skuniv.ac.kr.carpooldriver.controller.DrivingController;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.driving.DrivingSaveDto;
 import project.skuniv.ac.kr.carpooldriver.tmap.DirectionConverter;
-import project.skuniv.ac.kr.carpooldriver.tmap.TMapDirectionService;
-import project.skuniv.ac.kr.carpooldriver.tmap.TMapDirectionServiceCallback;
 
 import static project.skuniv.ac.kr.carpooldriver.IntroActivity.loginCheck;
 
@@ -60,7 +58,6 @@ public class SearchActivity extends AppCompatActivity implements OnMapReadyCallb
     private Long finishTime;
     private ArrayList<LatLng> latLngArrayList;
     private TMapPolyLine tMapPolyLine;
-    private TMapDirectionService tMapDirectionService;
     private GoogleMap mMap;
     private Marker currentMarker;
     private Double departureLat, departureLng;

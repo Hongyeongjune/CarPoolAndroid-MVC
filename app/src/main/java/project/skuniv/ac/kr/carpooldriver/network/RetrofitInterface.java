@@ -6,6 +6,7 @@ import project.skuniv.ac.kr.carpooldriver.domain.dto.driver.DriverGetDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.driver.DriverRegisterDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.driving.DrivingGetDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.driving.DrivingSaveDto;
+import project.skuniv.ac.kr.carpooldriver.domain.dto.fcm.SendDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.CheckUserIdDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.LoginDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.SignInDto;
@@ -102,4 +103,10 @@ public interface RetrofitInterface {
     @GET("carpool/driver/getInformation/{userId}")
     Call<DriverGetDto> driverGetInformation(@Path("userId") String userId);
 
+    /**
+     *  fcm
+     */
+
+    @POST("carpool/fcm/send")
+    Call<Void> firebaseMessagingSend(@Body SendDto sendDto);
 }

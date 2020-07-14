@@ -28,16 +28,19 @@ public class UserController {
     }
 
     public void singIn(SignInDto signInDto) {
+
         Call<LoginDto> response = NetRetrofit.getInstance().getNetRetrofitInterface().singIn(signInDto);
 
+        Log.d("LoginCheckCheck444", "grg");
         response.enqueue(new Callback<LoginDto>() {
             @Override
             public void onResponse(Call<LoginDto> call, Response<LoginDto> response) {
                 if(response.isSuccessful()) {
-                    Log.d("Response Data : " , response.body().getMessage().toString());
+                    Log.d("LoginCheckCheckCheck444", "rgrg");
                     loginCheck = true;
                 }
                 else {
+                    Log.d("Fail!!!!!!!! :" , "FAIL!!!");
                     loginCheck = false;
                 }
             }

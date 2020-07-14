@@ -75,13 +75,15 @@ public class IntroActivity extends AppCompatActivity {
 
             userController.singIn(signInDto);
 
+            Log.d("로그인체크", signInDto.getId() );
+
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if(loginCheck) {
                         loginEditor.putString("loginId", autoId);
                         loginEditor.commit();
-                        Intent intent = new Intent(getApplicationContext(), DriverStartingActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), StartingActivity.class);
                         startActivity(intent); //다음화면으로 넘어감
                         finish();
                     }

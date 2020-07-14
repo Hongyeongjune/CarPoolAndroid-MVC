@@ -9,13 +9,24 @@ public class SignUpDto {
     private String sex;
     private String phone;
 
-    public SignUpDto(String id, String password, String name, String age, String sex, String phone) {
+    public String getDeviceToken() {
+        return deviceToken;
+    }
+
+    public void setDeviceToken(String deviceToken) {
+        this.deviceToken = deviceToken;
+    }
+
+    private String deviceToken;
+
+    public SignUpDto(String id, String password, String name, String age, String sex, String phone, String deviceToken) {
         this.id = id;
         this.password = password;
         this.name = name;
         this.age = age;
         this.sex = sex;
         this.phone = phone;
+        this.deviceToken = deviceToken;
     }
 
     public void setId(String id) {

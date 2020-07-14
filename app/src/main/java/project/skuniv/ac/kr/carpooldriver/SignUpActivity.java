@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import project.skuniv.ac.kr.carpooldriver.controller.UserController;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.CheckUserIdDto;
 import project.skuniv.ac.kr.carpooldriver.domain.dto.user.SignUpDto;
+import project.skuniv.ac.kr.carpooldriver.fcm.FcmTokenService;
 
 import static project.skuniv.ac.kr.carpooldriver.IntroActivity.loginCheck;
 
@@ -68,7 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if(idCheck && !password.getText().toString().equals("")) {
 
                     signupDto = new SignUpDto(id.getText().toString(), password.getText().toString(), name.getText().toString(),
-                            age.getText().toString(), sex.getText().toString(), phone.getText().toString());
+                            age.getText().toString(), sex.getText().toString(), phone.getText().toString(), FcmTokenService.getFcmToken());
 
                     userController.signUp(signupDto);
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
